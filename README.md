@@ -8,6 +8,12 @@ The server is not a general shell, unrestricted debugger, credential extractor, 
 
 **Current public preview:** [`v0.3.7-preview.6`](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.6) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
 
+## Control Center
+
+[![Engineering MCP Control Center Home page with an animated gear train](docs/assets/control-center-home.gif)](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.6)
+
+The Windows Control Center keeps the shared local MCP runtime, validation, editor integration, tools, logs, and security controls in one place. This looping preview uses the packaged generic policy and contains no project or user data.
+
 ## Why this repository is verifiable
 
 - Source, build scripts, release notes, dependency lock files, and security policies are public and versioned together.
