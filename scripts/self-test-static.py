@@ -208,6 +208,9 @@ check('permissions:\n  contents: read' in ci_workflow and
 dependabot = (ROOT / '.github/dependabot.yml').read_text(encoding='utf-8')
 check('package-ecosystem: nuget' in dependabot and
       '- "/installer"' in dependabot and
+      '- "/src/*"' in dependabot and
+      '- "/tests/*"' in dependabot and
+      'group-by: dependency-name' in dependabot and
       'package-ecosystem: npm' in dependabot and
       'directory: "/vscode-extension"' in dependabot and
       'package-ecosystem: github-actions' in dependabot and
