@@ -6,7 +6,7 @@ Security-first local Model Context Protocol tooling for authorized WPF and .NET 
 
 The server is not a general shell, unrestricted debugger, credential extractor, remote administration agent, or arbitrary process inspector.
 
-**Current public preview:** [`v0.3.7-preview.4`](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.4) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
+**Current source preview:** [`v0.3.7-preview.4`](https://github.com/mangyan1/DotNetEngineeringMcp/tree/v0.3.7-preview.4) · Binary GitHub Release pending publication · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
 
 ## Why this repository is verifiable
 
@@ -69,7 +69,7 @@ Optional: run `Install-ControlCenter-Shortcut.cmd` once to create a Desktop shor
 
 ## Download and verify a release
 
-Download the MSI or portable ZIP and `SHA256SUMS.txt` from the [GitHub Releases page](https://github.com/mangyan1/DotNetEngineeringMcp/releases). Keep release binaries out of the source tree.
+When a binary release is published, download the MSI or portable ZIP and `SHA256SUMS.txt` from the [GitHub Releases page](https://github.com/mangyan1/DotNetEngineeringMcp/releases). Keep release binaries out of the source tree.
 
 Verify the MSI checksum in PowerShell and compare it with the matching line in `SHA256SUMS.txt`:
 
