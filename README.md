@@ -6,7 +6,7 @@ Security-first local Model Context Protocol tooling for authorized WPF and .NET 
 
 The server is not a general shell, unrestricted debugger, credential extractor, remote administration agent, or arbitrary process inspector.
 
-**Current public preview:** [`v0.3.7-preview.5`](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.5) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
+**Current public preview:** [`v0.3.7-preview.6`](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.6) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
 
 ## Why this repository is verifiable
 
@@ -84,13 +84,13 @@ When a binary release is published, download the MSI or portable ZIP and `SHA256
 Verify the MSI checksum in PowerShell and compare it with the matching line in `SHA256SUMS.txt`:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 .\EngineeringMcp-0.3.7-preview.5-win-x64-Setup.msi
+Get-FileHash -Algorithm SHA256 .\EngineeringMcp-0.3.7-preview.6-win-x64-Setup.msi
 ```
 
 Inspect its Authenticode signature and timestamp:
 
 ```powershell
-Get-AuthenticodeSignature .\EngineeringMcp-0.3.7-preview.5-win-x64-Setup.msi |
+Get-AuthenticodeSignature .\EngineeringMcp-0.3.7-preview.6-win-x64-Setup.msi |
     Select-Object Status, StatusMessage, SignerCertificate, TimeStamperCertificate
 ```
 
@@ -110,12 +110,12 @@ Build the self-contained Windows package, portable ZIP, and per-user MSI with:
 powershell -ExecutionPolicy Bypass -File build/release-hardening.ps1
 ```
 
-Version 0.3.7-preview.5 produces:
+Version 0.3.7-preview.6 produces:
 
-- `artifacts/release/EngineeringMcp-0.3.7-preview.5-win-x64.zip`
-- `artifacts/release/EngineeringMcp-0.3.7-preview.5-win-x64-Setup.msi`
+- `artifacts/release/EngineeringMcp-0.3.7-preview.6-win-x64.zip`
+- `artifacts/release/EngineeringMcp-0.3.7-preview.6-win-x64-Setup.msi`
 
-Preview labels remain in the portable ZIP/MSI filenames and application manifest. The MSI uses the numeric Windows Installer product version (`0.3.7`) because MSI product versions do not accept semantic-version suffixes; `app-manifest.json` identifies the `preview` channel, full `0.3.7-preview.5` version, and exact source commit.
+Preview labels remain in the portable ZIP/MSI filenames and application manifest. The MSI uses the numeric Windows Installer product version (`0.3.7`) because MSI product versions do not accept semantic-version suffixes; `app-manifest.json` identifies the `preview` channel, full `0.3.7-preview.6` version, and exact source commit.
 
 The package contains the Control Center, private MCP host, locked-down default policy, documentation (including this README), SPDX 2.3 SBOM, dependency inventory, SHA-256 checksums, and the .NET runtime. The portable package runs without installing .NET or opening the source repository.
 
@@ -138,7 +138,7 @@ powershell -ExecutionPolicy Bypass -File build/release-hardening.ps1 `
   -SelfSign `
   -RequireSigning `
   -RequireCleanSource `
-  -ExpectedVersion 0.3.7-preview.5 `
+  -ExpectedVersion 0.3.7-preview.6 `
   -SourceRevision (git rev-parse HEAD)
 ```
 
@@ -160,7 +160,7 @@ Validate the installed MSI, VS Code registration, uninstall/reinstall persistenc
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-installed-vscode.ps1 `
-  -MsiPath artifacts/release/EngineeringMcp-0.3.7-preview.5-win-x64-Setup.msi `
+  -MsiPath artifacts/release/EngineeringMcp-0.3.7-preview.6-win-x64-Setup.msi `
   -ExerciseReinstall `
   -Configuration Release
 ```
@@ -169,7 +169,7 @@ Tests use synthetic fixtures. The automated suite exercises a real WPF process f
 
 ## Project status
 
-The projects target .NET 10 and pin the official `ModelContextProtocol` package to 2.2.0. The `0.3.7-preview.5` public pre-release carries bounded universal WPF workspace discovery and durable exact-path policy provisioning alongside real-process screenshot masking, restartable authenticated WPF probing, live ASP.NET action correlation, exact-file XAML auditing, provider-chrome selector classification, PII-redaction coverage, and public dependency-update automation. See `IMPLEMENTATION_STATUS.md` for exact completion state and `docs/ROADMAP.md` for phase gates.
+The projects target .NET 10 and pin the official `ModelContextProtocol` package to 2.2.0. The `0.3.7-preview.6` public pre-release carries bounded universal WPF workspace discovery and durable exact-path policy provisioning alongside real-process screenshot masking, restartable authenticated WPF probing, live ASP.NET action correlation, exact-file XAML auditing, provider-chrome selector classification, PII-redaction coverage, protected release governance, and the validated Microsoft.Build.Framework 17.14.28 dependency update. See `IMPLEMENTATION_STATUS.md` for exact completion state and `docs/ROADMAP.md` for phase gates.
 
 ## Source-of-truth order
 

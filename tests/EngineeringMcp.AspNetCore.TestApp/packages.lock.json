@@ -78,8 +78,8 @@
       "engineeringmcp.diagnostics": {
         "type": "Project",
         "dependencies": {
-          "EngineeringMcp.Contracts": "[0.3.7-preview.5, )",
-          "EngineeringMcp.Security": "[0.3.7-preview.5, )",
+          "EngineeringMcp.Contracts": "[0.3.7-preview.6, )",
+          "EngineeringMcp.Security": "[0.3.7-preview.6, )",
           "Microsoft.Diagnostics.NETCore.Client": "[0.2.661903, )",
           "Microsoft.Diagnostics.Runtime": "[4.0.732401, )",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "[3.2.6, )"
@@ -88,7 +88,7 @@
       "engineeringmcp.security": {
         "type": "Project",
         "dependencies": {
-          "EngineeringMcp.Contracts": "[0.3.7-preview.5, )"
+          "EngineeringMcp.Contracts": "[0.3.7-preview.6, )"
         }
       },
       "Microsoft.Diagnostics.NETCore.Client": {
