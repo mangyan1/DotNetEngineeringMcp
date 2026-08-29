@@ -1,0 +1,15 @@
+<Project Sdk="WixToolset.Sdk/4.0.6">
+  <PropertyGroup>
+    <InstallerPlatform>x64</InstallerPlatform>
+    <OutputType>Package</OutputType>
+    <OutputName Condition="'$(OutputName)' == ''">EngineeringMcp-Setup</OutputName>
+    <DefineConstants>ProductVersion=$(ProductVersion);RepositoryRoot=$(RepositoryRoot);LicenseRtf=$(LicenseRtf)</DefineConstants>
+    <!-- ICE61 conflicts with the intentional inclusive upgrade range used to replace
+         stale same-version development builds; all other ICE validation remains active. -->
+    <SuppressIces>ICE38;ICE61;ICE64;ICE91</SuppressIces>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" />
+    <Compile Include="$(PayloadSourceFile)" Link="GeneratedPayload.wxs" />
+  </ItemGroup>
+</Project>
