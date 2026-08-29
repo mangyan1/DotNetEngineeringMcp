@@ -28,9 +28,10 @@ Additional source verification on 2026-08-29:
 - The authenticated WPF probe completed a request, disposed, restarted, and completed another request without a stale singleton or pipe timeout.
 - A live ASP.NET fixture recorded an HTTP request and returned it through the authenticated pipe with an exact diagnostic-action correlation marker.
 - One-file XAML audits were limited to the selected file, and redaction preserved ISO timestamps, dotted versions, and target-framework path fragments while still masking realistic phone numbers.
-- Release hardening produced the timestamped development-self-signed `EngineeringMcp-0.3.7-preview.4-win-x64.zip` and `EngineeringMcp-0.3.7-preview.4-win-x64-Setup.msi`; the manifest reports version `0.3.7-preview.4` on the `preview` channel and packages the Apache-2.0 license, White-Lotus notice, universal WPF workspace guide, and code-signing policy.
+- Release hardening produced the timestamped development-self-signed `EngineeringMcp-0.3.7-preview.4-win-x64.zip` and `EngineeringMcp-0.3.7-preview.4-win-x64-Setup.msi`; the manifest reports version `0.3.7-preview.4` on the `preview` channel and packages the Apache-2.0 license, mangyan1 notice, universal WPF workspace guide, and code-signing policy.
 - The final MSI passed install, uninstall, reinstall, durable policy/VS Code preservation, and installed 76-tool acceptance. The installed host reports `0.3.7-preview.4`.
-- All 52 static contract/security checks passed, including product-neutrality, inert centralized-property/manual-executable authorization, and packaged code-signing policy gates.
+- All 54 static contract/security checks passed, including product-neutrality, inert centralized-property/manual-executable authorization, packaged code-signing policy, pinned read-only CI, dependency-update, and ownership gates.
+- Public GitHub CI uses locked dependency restore, the pinned .NET SDK, commit-pinned official actions, read-only token permissions, no release secrets, and no artifact upload.
 - A real application integration fixture returned backend adapter status `ready` with one bounded request observation and a selector audit of 43/43 stable actionable selectors with zero missing or duplicate IDs; the fixture remains external to the universal MCP product.
 
 | Area | Status | Notes |

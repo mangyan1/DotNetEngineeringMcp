@@ -159,7 +159,7 @@ $spdxPackages = @(
         filesAnalyzed = $false
         licenseConcluded = 'Apache-2.0'
         licenseDeclared = 'Apache-2.0'
-        copyrightText = 'Copyright 2026 White-Lotus'
+        copyrightText = 'Copyright 2026 mangyan1'
     }
 )
 $relationships = @()

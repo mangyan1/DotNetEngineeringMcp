@@ -160,8 +160,10 @@ license_metadata = '\n'.join([notice_text, build_props, release_script, installe
 check('Apache License' in license_text and 'Version 2.0, January 2004' in license_text and
       'END OF TERMS AND CONDITIONS' in license_text,
       "Apache-2.0 license text is installed")
-check('Copyright 2026 White-Lotus' in notice_text and '<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>' in build_props,
-      "White-Lotus attribution and SPDX project metadata are installed")
+check('Copyright 2026 mangyan1' in notice_text and
+      '<Authors>mangyan1</Authors>' in build_props and
+      '<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>' in build_props,
+      "mangyan1 attribution and SPDX project metadata are installed")
 check("licenseDeclared = 'Apache-2.0'" in release_script and
       "Copy-Item -LiteralPath $noticePath" in release_script,
       "Release SBOM and payload declare Apache-2.0")
@@ -172,10 +174,22 @@ check('Code signing policy' in signing_policy and
       "Code-signing policy and packaged trust-path disclosure are installed")
 check(not any(marker in license_metadata.lower() for marker in [
           'source-available', 'not open source', 'non-commercial',
-          'licenseref-white-lotus-personal']),
+          'licenseref-']),
       "Legacy restrictive license metadata is absent")
 check((ROOT / 'scripts/test-installed-vscode.ps1').exists(),
       "Installed-package VS Code acceptance automation exists")
+ci_workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
+ci_actions = re.findall(r'uses:\s+actions/(?:checkout|setup-dotnet)@([0-9a-f]{40})', ci_workflow)
+check('permissions:\n  contents: read' in ci_workflow and
+      'pull_request_target' not in ci_workflow and
+      'persist-credentials: false' in ci_workflow and
+      'dotnet restore DotNetEngineeringMcp.sln --runtime win-x64 --locked-mode' in ci_workflow and
+      len(ci_actions) == 2,
+      "Public CI is read-only, lock-file-driven, and pins official actions by commit")
+check((ROOT / '.github/dependabot.yml').exists() and
+      (ROOT / '.github/CODEOWNERS').exists() and
+      (ROOT / 'CONTRIBUTING.md').exists(),
+      "Dependabot, security-sensitive ownership, and contribution guidance are installed")
 check('AllowSameVersionUpgrades="yes"' in (ROOT / 'installer/Package.wxs').read_text(encoding='utf-8'),
       "MSI replaces same-version development builds")
 check('ICE61' in (ROOT / 'installer/EngineeringMcp.Installer.wixproj').read_text(encoding='utf-8'),
