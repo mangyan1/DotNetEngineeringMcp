@@ -165,6 +165,11 @@ check('Copyright 2026 White-Lotus' in notice_text and '<PackageLicenseExpression
 check("licenseDeclared = 'Apache-2.0'" in release_script and
       "Copy-Item -LiteralPath $noticePath" in release_script,
       "Release SBOM and payload declare Apache-2.0")
+signing_policy = (ROOT / 'docs/CODE-SIGNING-POLICY.md').read_text(encoding='utf-8')
+check('Code signing policy' in signing_policy and
+      'Free code signing provided by SignPath.io, certificate by SignPath Foundation' in signing_policy and
+      'docs/CODE-SIGNING-POLICY.md' in release_script,
+      "Code-signing policy and packaged trust-path disclosure are installed")
 check(not any(marker in license_metadata.lower() for marker in [
           'source-available', 'not open source', 'non-commercial',
           'licenseref-white-lotus-personal']),

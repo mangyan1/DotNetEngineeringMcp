@@ -171,14 +171,7 @@ public sealed class WpfScreenshotIntegrationTests
     }
 
     private static string FindFixtureExecutable()
-    {
-        const string projectName = "EngineeringMcp.Wpf.TestApp";
-        var artifacts = Environment.GetEnvironmentVariable(McpRuntimeDefaults.ArtifactsPathEnvironmentVariable);
-        if (!string.IsNullOrWhiteSpace(artifacts))
-            return Path.Combine(Path.GetFullPath(artifacts), "bin", projectName, "debug", projectName + ".exe");
-        return Path.Combine(TestRepositoryLocator.FindRoot(), "tests", projectName, "bin", "Debug",
-            "net10.0-windows10.0.19041.0", projectName + ".exe");
-    }
+        => WpfTestFixtureLocator.FindExecutable();
 
     private sealed class FixedPolicyProvider(McpPolicy policy) : FilePolicyProvider
     {

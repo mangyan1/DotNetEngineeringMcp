@@ -66,12 +66,12 @@ Build the self-contained Windows package, portable ZIP, and per-user MSI with:
 powershell -ExecutionPolicy Bypass -File build/release-hardening.ps1
 ```
 
-Version 0.3.7-preview.3 produces:
+Version 0.3.7-preview.4 produces:
 
-- `artifacts/release/EngineeringMcp-0.3.7-preview.3-win-x64.zip`
-- `artifacts/release/EngineeringMcp-0.3.7-preview.3-win-x64-Setup.msi`
+- `artifacts/release/EngineeringMcp-0.3.7-preview.4-win-x64.zip`
+- `artifacts/release/EngineeringMcp-0.3.7-preview.4-win-x64-Setup.msi`
 
-Preview labels remain in the portable ZIP/MSI filenames and application manifest. The MSI uses the numeric Windows Installer product version (`0.3.7`) because MSI product versions do not accept semantic-version suffixes; `app-manifest.json` identifies the `preview` channel and full `0.3.7-preview.3` version.
+Preview labels remain in the portable ZIP/MSI filenames and application manifest. The MSI uses the numeric Windows Installer product version (`0.3.7`) because MSI product versions do not accept semantic-version suffixes; `app-manifest.json` identifies the `preview` channel and full `0.3.7-preview.4` version.
 
 The package contains the Control Center, private MCP host, locked-down default policy, documentation (including this README), SPDX 2.3 SBOM, dependency inventory, SHA-256 checksums, and the .NET runtime. The portable package runs without installing .NET or opening the source repository.
 
@@ -97,6 +97,8 @@ This creates or reuses a non-exportable `Engineering MCP Development` certificat
 
 Unsigned output must not be promoted as an official release.
 
+See [`docs/CODE-SIGNING-POLICY.md`](docs/CODE-SIGNING-POLICY.md) for release provenance, approval roles, privacy commitments, and the planned SignPath Foundation trust path.
+
 ## Build and test
 
 ```powershell
@@ -109,7 +111,7 @@ Validate the installed MSI, VS Code registration, uninstall/reinstall persistenc
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-installed-vscode.ps1 `
-  -MsiPath artifacts/release/EngineeringMcp-0.3.7-preview.3-win-x64-Setup.msi `
+  -MsiPath artifacts/release/EngineeringMcp-0.3.7-preview.4-win-x64-Setup.msi `
   -ExerciseReinstall `
   -Configuration Release
 ```
@@ -118,7 +120,7 @@ Tests use synthetic fixtures. The automated suite exercises a real WPF process f
 
 ## Project status
 
-The projects target .NET 10 and pin the official `ModelContextProtocol` package to 2.2.0. On 2026-08-29, the `0.3.7-preview.3` Release suite added bounded universal WPF workspace discovery and durable exact-path policy provisioning to the existing real-process screenshot masking, restartable authenticated WPF probing, live ASP.NET action correlation, exact-file XAML auditing, provider-chrome selector classification, and PII-redaction coverage. See `IMPLEMENTATION_STATUS.md` for exact completion state and `docs/ROADMAP.md` for phase gates.
+The projects target .NET 10 and pin the official `ModelContextProtocol` package to 2.2.0. The `0.3.7-preview.4` public-source release carries bounded universal WPF workspace discovery and durable exact-path policy provisioning alongside real-process screenshot masking, restartable authenticated WPF probing, live ASP.NET action correlation, exact-file XAML auditing, provider-chrome selector classification, and PII-redaction coverage. See `IMPLEMENTATION_STATUS.md` for exact completion state and `docs/ROADMAP.md` for phase gates.
 
 ## Source-of-truth order
 

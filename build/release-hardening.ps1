@@ -72,6 +72,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Control Center publish failed.' }
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'config/policy.packaged.json') -Destination $configOutput
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'config/policy.schema.json') -Destination $configOutput
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'docs/SECURITY.md') -Destination $docsOutput
+Copy-Item -LiteralPath (Join-Path $repositoryRoot 'docs/CODE-SIGNING-POLICY.md') -Destination $docsOutput
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'docs/VSCODE.md') -Destination $docsOutput
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'docs/WPF-WORKSPACES.md') -Destination $docsOutput
 Copy-Item -LiteralPath (Join-Path $repositoryRoot 'README.md') -Destination (Join-Path $docsOutput 'README.md')
