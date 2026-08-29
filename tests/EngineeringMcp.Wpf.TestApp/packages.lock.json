@@ -14,7 +14,7 @@
       "WPF-UI.Abstractions": {
         "type": "Transitive",
         "resolved": "4.3.0",
-        "contentHash": "/MHSmCfIHtVnPXTArurXAp8nJGNl/eyhS7Dy8q/fRwuq/rNiqSxcC68/fRsdiO7lfRIU9ZnU9nXQAwSEZoO3rg=="
+        "contentHash": "7Kj9DmCCo4SOCd1jAiw4+EcMFP2nR8rLLvitAYzVtzbWToTsodkbie24+8x9C4LDLxkopWEUGX62szqqNy7oeg=="
       },
       "engineeringmcp.contracts": {
         "type": "Project"
