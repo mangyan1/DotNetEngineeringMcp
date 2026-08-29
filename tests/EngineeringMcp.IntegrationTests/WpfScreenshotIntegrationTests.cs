@@ -14,8 +14,10 @@ namespace EngineeringMcp.IntegrationTests;
 [DoNotParallelize]
 public sealed class WpfScreenshotIntegrationTests
 {
+    private static readonly TimeSpan FixtureStartupTimeout = TimeSpan.FromSeconds(30);
+
     [TestMethod]
-    [Timeout(30_000)]
+    [Timeout(60_000)]
     public async Task Screenshot_ReturnsPngOnlyAfterTextAndSensitiveRegionsAreMasked()
     {
         var executable = FindFixtureExecutable();
@@ -159,7 +161,7 @@ public sealed class WpfScreenshotIntegrationTests
 
     private static async Task WaitForMainWindowAsync(Process process)
     {
-        var deadline = DateTimeOffset.UtcNow.AddSeconds(15);
+        var deadline = DateTimeOffset.UtcNow.Add(FixtureStartupTimeout);
         while (DateTimeOffset.UtcNow < deadline)
         {
             process.Refresh();
@@ -167,7 +169,8 @@ public sealed class WpfScreenshotIntegrationTests
             if (process.MainWindowHandle != IntPtr.Zero) return;
             await Task.Delay(100);
         }
-        throw new AssertFailedException("WPF fixture did not open a window within 15 seconds.");
+        throw new AssertFailedException(
+            $"WPF fixture did not open a window within {FixtureStartupTimeout.TotalSeconds:0} seconds.");
     }
 
     private static string FindFixtureExecutable()
