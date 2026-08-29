@@ -19,6 +19,16 @@ The server is not a general shell, unrestricted debugger, credential extractor, 
 
 Trust is based on inspectable controls and repeatable evidence, not the signature alone. Security-sensitive users should verify the checksum and build the matching public tag before authorizing an application.
 
+## Requirements and bundled dependencies
+
+| Use | Requirements |
+| --- | --- |
+| Installed MSI or portable ZIP | Windows x64. The application is self-contained and includes its .NET runtime; no separate .NET installation, Node.js, Python, WiX, or VS Code extension is required. VS Code is optional and needed only when using its MCP client. |
+| Build and test from source | Windows x64, the .NET SDK selected by `global.json` (currently 10.0.400 with latest-patch roll-forward), PowerShell, Python 3 for the static gate, and Bash for the sanitized secret scan. Git for Windows supplies Bash on a typical Windows development machine. |
+| Build a signed installer | The source-build requirements plus Windows SDK SignTool and an approved signing certificate. WiX is restored as a locked NuGet/MSBuild SDK dependency. |
+
+NuGet versions are centralized in `Directory.Packages.props`, and every project has a committed lock file. Dependabot opens weekly update pull requests for NuGet, the optional VS Code extension manifest, and GitHub Actions. Minor and patch updates are grouped; major updates remain separate for deliberate review. Pull requests must pass locked restore, the NuGet advisory gate, dependency review, build, tests, static checks, and the sanitized secret scan before merge.
+
 ## What it provides
 
 | Tool group | Count | Purpose |

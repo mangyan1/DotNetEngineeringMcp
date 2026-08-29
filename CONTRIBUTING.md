@@ -12,6 +12,8 @@ Engineering MCP accepts focused changes that preserve its local-first, default-d
 
 ```powershell
 dotnet restore DotNetEngineeringMcp.sln --runtime win-x64 --locked-mode
+dotnet restore installer/EngineeringMcp.Installer.wixproj --locked-mode
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Test-NuGetVulnerabilities.ps1
 dotnet build DotNetEngineeringMcp.sln --configuration Release --no-restore
 dotnet test DotNetEngineeringMcp.sln --configuration Release --no-build --no-restore
 python scripts/self-test-static.py
@@ -24,5 +26,6 @@ The ordinary suite intentionally skips the installed-package acceptance test. Re
 
 - Pull requests must explain the security boundary affected and the evidence used to validate the change.
 - Build scripts, dependencies, policy schemas, authentication, redaction, diagnostic capture, installer behavior, and signing workflows require explicit maintainer review.
+- Dependabot opens weekly NuGet, VS Code extension, and GitHub Actions update pull requests. Minor and patch updates are grouped; major upgrades remain separate and must not be merged without compatibility testing.
 - Do not weaken tests or suppress warnings to make a gate pass.
 - Report vulnerabilities privately according to [`docs/SECURITY.md`](docs/SECURITY.md); do not include sensitive exploit data in a public issue.

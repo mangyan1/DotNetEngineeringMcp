@@ -24,12 +24,12 @@ jobs:
       DOTNET_NOLOGO: "1"
     steps:
       - name: Check out source
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
       - name: Set up pinned .NET SDK
-        uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
           global-json-file: global.json
           cache: true
@@ -37,6 +37,13 @@ jobs:
 
       - name: Restore locked dependencies
         run: dotnet restore DotNetEngineeringMcp.sln --runtime win-x64 --locked-mode
+
+      - name: Restore locked installer dependencies
+        run: dotnet restore installer/EngineeringMcp.Installer.wixproj --locked-mode
+
+      - name: Reject known NuGet vulnerabilities
+        shell: powershell
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Test-NuGetVulnerabilities.ps1
 
       - name: Build release configuration
         run: dotnet build DotNetEngineeringMcp.sln --configuration Release --no-restore
