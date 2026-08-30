@@ -1,16 +1,16 @@
-# .NET/WPF Engineering MCP
+# WPF & .NET Engineering MCP Server
 
-[![CI](https://github.com/mangyan1/DotNetEngineeringMcp/actions/workflows/ci.yml/badge.svg)](https://github.com/mangyan1/DotNetEngineeringMcp/actions/workflows/ci.yml)
+[![CI](https://github.com/mangyan1/wpf-dotnet-engineering-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/mangyan1/wpf-dotnet-engineering-mcp/actions/workflows/ci.yml)
 
-Security-first local Model Context Protocol tooling for authorized WPF and .NET engineering work on Windows. The current source publishes 76 structured tools for UI Automation, bounded in-process WPF diagnostics, .NET runtime observation, approved source analysis, ASP.NET observability, and evidence-based cross-layer diagnosis.
+Security-first local Model Context Protocol (MCP) server for authorized WPF UI automation, .NET diagnostics, ASP.NET observability, and VS Code engineering workflows on Windows. The current source publishes 76 structured tools for UI Automation, bounded in-process WPF diagnostics, .NET runtime observation, approved source analysis, ASP.NET observability, and evidence-based cross-layer diagnosis.
 
 The server is not a general shell, unrestricted debugger, credential extractor, remote administration agent, or arbitrary process inspector.
 
-**Current public preview:** [`v0.3.7-preview.6`](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.6) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
+**Current public preview:** [`v0.3.7-preview.6`](https://github.com/mangyan1/wpf-dotnet-engineering-mcp/releases/tag/v0.3.7-preview.6) · [Security policy](docs/SECURITY.md) · [Code-signing policy](docs/CODE-SIGNING-POLICY.md) · [Contributing](CONTRIBUTING.md)
 
 ## Control Center
 
-[![Engineering MCP Control Center Home page with an animated gear train](docs/assets/control-center-home.gif)](https://github.com/mangyan1/DotNetEngineeringMcp/releases/tag/v0.3.7-preview.6)
+[![Engineering MCP Control Center Home page with an animated gear train](docs/assets/control-center-home.gif)](https://github.com/mangyan1/wpf-dotnet-engineering-mcp/releases/tag/v0.3.7-preview.6)
 
 The Windows Control Center keeps the shared local MCP runtime, validation, editor integration, tools, logs, and security controls in one place. This looping preview uses the packaged generic policy and contains no project or user data.
 
@@ -85,7 +85,7 @@ Optional: run `Install-ControlCenter-Shortcut.cmd` once to create a Desktop shor
 
 ## Download and verify a release
 
-When a binary release is published, download the MSI or portable ZIP and `SHA256SUMS.txt` from the [GitHub Releases page](https://github.com/mangyan1/DotNetEngineeringMcp/releases). Keep release binaries out of the source tree.
+When a binary release is published, download the MSI or portable ZIP and `SHA256SUMS.txt` from the [GitHub Releases page](https://github.com/mangyan1/wpf-dotnet-engineering-mcp/releases). Keep release binaries out of the source tree.
 
 Verify the MSI checksum in PowerShell and compare it with the matching line in `SHA256SUMS.txt`:
 
